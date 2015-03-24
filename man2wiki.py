@@ -67,6 +67,8 @@ def convert(in_filename, out_filename):
 	
 	f.close()
 		
-
-for f in [f for f in listdir(sys.argv[1]) if isfile(join(sys.argv[1],f))]:
-	convert(join(sys.argv[1], f), join(sys.argv[2], splitext(f)[0] + ".wiki"))
+if len(sys.argv) != 3:
+	print("Usage: python man2wiki.py [man folder] [wiki folder]")
+else:
+	for f in [f for f in listdir(sys.argv[1]) if isfile(join(sys.argv[1],f))]:
+		convert(join(sys.argv[1], f), join(sys.argv[2], splitext(f)[0] + ".wiki"))
